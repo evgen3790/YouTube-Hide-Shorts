@@ -10,7 +10,12 @@ ytd-mini-guide-entry-renderer a[href*="/shorts"] {
     display: none !important;
 }
 
-/* Скрываем блок Shorts в ленте */
+/* Скрываем блок Shorts в ленте (rich-shelf) */
 ytd-rich-shelf-renderer a[href*="/shorts"] {
+    display: none !important;
+}
+
+/* Скрываем блок Shorts в ленте (reel-shelf) */
+ytd-reel-shelf-renderer a[href*="/shorts"] {
     display: none !important;
 }
