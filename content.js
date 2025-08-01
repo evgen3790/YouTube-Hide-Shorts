@@ -1,16 +1,17 @@
-// Функция для скрытия Shorts в обоих меню
+// Функция для скрытия Shorts в меню и ленте
 function hideShorts() {
-    // Ищем элементы Shorts в стандартном и мини-меню
+    // Скрываем Shorts в стандартном меню, мини-меню и ленте
     const shortsElements = document.querySelectorAll(
         'ytd-guide-entry-renderer a[title="Shorts"], ' +
         'ytd-guide-entry-renderer a[href*="/shorts"], ' +
         'ytd-mini-guide-entry-renderer a[title="Shorts"], ' +
-        'ytd-mini-guide-entry-renderer a[href*="/shorts"]'
+        'ytd-mini-guide-entry-renderer a[href*="/shorts"], ' +
+        'ytd-rich-shelf-renderer a[href*="/shorts"]'
     );
 
     shortsElements.forEach(element => {
-        // Скрываем родительский элемент (ytd-guide-entry-renderer или ytd-mini-guide-entry-renderer)
-        const parent = element.closest('ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer');
+        // Для меню и мини-меню скрываем родительский элемент
+        const parent = element.closest('ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer, ytd-rich-shelf-renderer');
         if (parent) {
             parent.style.display = 'none';
         }
@@ -20,7 +21,7 @@ function hideShorts() {
 // Выполняем сразу
 hideShorts();
 
-// Наблюдатель за изменениями в DOM (YouTube загружает меню динамически)
+// Наблюдатель за изменениями в DOM
 const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
         if (mutation.addedNodes.length) {
