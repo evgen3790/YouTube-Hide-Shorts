@@ -1,17 +1,18 @@
 // Функция для скрытия Shorts в меню и ленте
 function hideShorts() {
-    // Скрываем Shorts в стандартном меню, мини-меню и ленте
+    // Скрываем Shorts в стандартном меню, мини-меню, ленте (rich-shelf и reel-shelf)
     const shortsElements = document.querySelectorAll(
         'ytd-guide-entry-renderer a[title="Shorts"], ' +
         'ytd-guide-entry-renderer a[href*="/shorts"], ' +
         'ytd-mini-guide-entry-renderer a[title="Shorts"], ' +
         'ytd-mini-guide-entry-renderer a[href*="/shorts"], ' +
-        'ytd-rich-shelf-renderer a[href*="/shorts"]'
+        'ytd-rich-shelf-renderer a[href*="/shorts"], ' +
+        'ytd-reel-shelf-renderer a[href*="/shorts"]'
     );
 
     shortsElements.forEach(element => {
-        // Для меню и мини-меню скрываем родительский элемент
-        const parent = element.closest('ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer, ytd-rich-shelf-renderer');
+        // Скрываем родительский элемент
+        const parent = element.closest('ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer, ytd-rich-shelf-renderer, ytd-reel-shelf-renderer');
         if (parent) {
             parent.style.display = 'none';
         }
