@@ -9,3 +9,8 @@ ytd-mini-guide-entry-renderer a[title="Shorts"],
 ytd-mini-guide-entry-renderer a[href*="/shorts"] {
     display: none !important;
 }
+
+/* Скрываем блок Shorts в ленте */
+ytd-rich-shelf-renderer a[href*="/shorts"] {
+    display: none !important;
+}
