@@ -1,0 +1,11 @@
+/* Скрываем Shorts в стандартном меню */
+ytd-guide-entry-renderer a[title="Shorts"],
+ytd-guide-entry-renderer a[href*="/shorts"] {
+    display: none !important;
+}
+
+/* Скрываем Shorts в мини-меню */
+ytd-mini-guide-entry-renderer a[title="Shorts"],
+ytd-mini-guide-entry-renderer a[href*="/shorts"] {
+    display: none !important;
+}
